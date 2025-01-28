@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sample/product-accordion",
+	"version": "0.1.0",
+	"title": "Sample Product Accordion",
+	"category": "theme",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"usesContext": [ "query", "queryId", "postId" ],
+	"textdomain": "product-accordion",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js",
+	"blockHooks": {
+        "woocommerce/accordion-group": "lastChild"
+    }
+}
