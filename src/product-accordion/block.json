@@ -11,14 +11,11 @@
 	"supports": {
 		"html": false
 	},
-	"usesContext": [ "query", "queryId", "postId" ],
+	"usesContext": ["query", "queryId", "postId"],
 	"textdomain": "product-accordion",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"render": "file:./render.php",
-	"viewScript": "file:./view.js",
-	"blockHooks": {
-        "woocommerce/accordion-group": "lastChild"
-    }
+	"viewScript": "file:./view.js"
 }

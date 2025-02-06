@@ -38,24 +38,3 @@ registerBlockType(metadata.name, {
 	 */
 	save,
 });
-
-const addToAccordion = (blockSettings, blockName) => {
-	if (blockName === "woocommerce/accordion-group") {
-		return {
-			...blockSettings,
-			allowedBlocks: [...(blockSettings.allowedBlocks ?? []), metadata.name],
-		};
-	}
-	if (blockName === "woocommerce/accordion-item") {
-		return {
-			...blockSettings,
-			parent: [...(blockSettings.parent ?? []), metadata.name],
-		};
-	}
-	return blockSettings;
-};
-addFilter(
-	"blocks.registerBlockType",
-	"outermost-icon-block-add-to-accordion",
-	addToAccordion,
-);

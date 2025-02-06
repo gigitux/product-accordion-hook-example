@@ -24,7 +24,7 @@ import "./editor.scss";
 const TEMPLATE = [
 	[
 		"woocommerce/accordion-item",
-		{},
+		{ openByDefault: true },
 		[
 			["woocommerce/accordion-header", { title: "Test" }, []],
 			[
@@ -53,5 +53,9 @@ const TEMPLATE = [
  * @return {Element} Element to render.
  */
 export default function Edit() {
-	return <InnerBlocks template={TEMPLATE} />;
+	return (
+		<>
+			<InnerBlocks template={TEMPLATE} />
+		</>
+	);
 }
