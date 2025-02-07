@@ -32,7 +32,8 @@ function sample_product_accordion_block_init() {
 add_action( 'init', 'sample_product_accordion_block_init' );
 
 
-function my_filter_block_type_metadata( $metadata ) {
+
+function allow_sample_product_accordion_to_be_inject_in_product_accordion_block( $metadata ) {
 	if ( 'woocommerce/accordion-group' === $metadata['name'] ) {
 		$metadata['allowedBlocks'] = array_merge(
 			$metadata['allowedBlocks'],
@@ -48,7 +49,7 @@ function my_filter_block_type_metadata( $metadata ) {
 	}
 	return $metadata;
 }
-add_filter( 'block_type_metadata', 'my_filter_block_type_metadata' );
+add_filter( 'block_type_metadata', 'allow_sample_product_accordion_to_be_inject_in_product_accordion_block' );
 
 
 
@@ -61,7 +62,7 @@ add_filter(
 			'position_to_anchor' => 'last_child',
 		);
 
-		if ( BlockifiedProductDetailsUtils::is_hook_accordion_item_block_to_anchor( $anchor_info, $anchor_block_type, $relative_position, $context ) ) {
+		if ( BlockifiedProductDetailsUtils::should_hook_accordion_item_in_product_details( $anchor_info, $anchor_block_type, $relative_position, $context ) ) {
 			$hooked_block_types[] = 'sample/product-accordion';
 
 		}
@@ -89,14 +90,12 @@ add_filter(
 <!-- /wp:sample/product-accordion --></div>';
 
 		$parsed_block_from_mockup = parse_blocks( $parsed_block_from_mockup );
-
-
-
 		return $parsed_block_from_mockup[0];
 
 	},
 	10,
 	5
 );
+
 
 
