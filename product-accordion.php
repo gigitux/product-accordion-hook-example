@@ -62,7 +62,7 @@ add_filter(
 			'position_to_anchor' => 'last_child',
 		);
 
-		if ( BlockifiedProductDetailsUtils::should_hook_accordion_item_in_product_details( $anchor_info, $anchor_block_type, $relative_position, $context ) ) {
+		if ( BlockifiedProductDetailsUtils::is_valid_product_details_accordion_hook( $anchor_info, $anchor_block_type, $relative_position, $context ) ) {
 			$hooked_block_types[] = 'sample/product-accordion';
 
 		}
@@ -79,11 +79,12 @@ add_filter(
 		$parsed_block_from_mockup = '<!-- wp:sample/product-accordion -->
 <div class="wp-block-sample-product-accordion"><!-- wp:woocommerce/accordion-item {"openByDefault":true} -->
 <div class="is-open wp-block-woocommerce-accordion-item"><!-- wp:woocommerce/accordion-header -->
-<h3 class="wp-block-woocommerce-accordion-header accordion-item__heading"><button class="accordion-item__toggle"><span>Test</span><span class="accordion-item__toggle-icon has-icon-plus" style="width:1.2em;height:1.2em"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M11 12.5V17.5H12.5V12.5H17.5V11H12.5V6H11V11H6V12.5H11Z" fill="currentColor"></path></svg></span></button></h3>
+<h3 class="wp-block-woocommerce-accordion-header accordion-item__heading"><button class="accordion-item__toggle"><span>Sale</span><span class="accordion-item__toggle-icon has-icon-plus" style="width:1.2em;height:1.2em"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M11 12.5V17.5H12.5V12.5H17.5V11H12.5V6H11V11H6V12.5H11Z" fill="currentColor"></path></svg></span></button></h3>
 <!-- /wp:woocommerce/accordion-header -->
+
 <!-- wp:woocommerce/accordion-panel -->
 <div class="wp-block-woocommerce-accordion-panel"><div class="accordion-content__wrapper"><!-- wp:paragraph -->
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis eget nunc fermentum ultricies. Nullam nec sapien nec0</p>
+<p>Product is on sale</p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:woocommerce/accordion-panel --></div>
 <!-- /wp:woocommerce/accordion-item --></div>
